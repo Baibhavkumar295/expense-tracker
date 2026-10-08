@@ -1,29 +1,64 @@
-const form = document.querySelector("form");
+const form = document.getElementById("expenseForm");
+const expenseList = document.getElementById("expenseList");
+const totalAmount = document.getElementById("totalAmount");
+
+let expenses = JSON.parse(localStorage.getItem("expenses")) || [];
+
+function displayExpenses() {
+    expenseList.innerHTML = "";
+
+    let total = 0;
+
+    expenses.forEach(function(expense, index) {
+        total += Number(expense.amount);
+
+        const row = document.createElement("tr");
+
+        row.innerHTML = `
+            <td>${expense.name}</td>
+            <td>₹${expense.amount}</td>
+            <td>${expense.category}</td>
+            <td>
+                <button class="delete-btn" onclick="deleteExpense(${index})">
+                    Delete
+                </button>
+            </td>
+        `;
+
+        expenseList.appendChild(row);
+    });
+
+    totalAmount.textContent = total;
+}
 
 form.addEventListener("submit", function(event) {
     event.preventDefault();
 
-    const expenseName = document.querySelector(
-        'input[type="text"]'
-    ).value;
+    const name = document.getElementById("expenseName").value;
+    const amount = document.getElementById("expenseAmount").value;
+    const category = document.getElementById("expenseCategory").value;
 
-    const amount = document.querySelector(
-        'input[type="number"]'
-    ).value;
+    const expense = {
+        name: name,
+        amount: amount,
+        category: category
+    };
 
-    const category = document.querySelector("select").value;
+    expenses.push(expense);
 
-    if (expenseName === "" || amount === "") {
-        alert("Please enter all details.");
-        return;
-    }
-
-    alert(
-        "Expense Added!\n\n" +
-        "Name: " + expenseName +
-        "\nAmount: ₹" + amount +
-        "\nCategory: " + category
-    );
+    localStorage.setItem("expenses", JSON.stringify(expenses));
 
     form.reset();
+
+    displayExpenses();
 });
+
+function deleteExpense(index) {
+    expenses.splice(index, 1);
+
+    localStorage.setItem("expenses", JSON.stringify(expenses));
+
+    displayExpenses();
+}
+
+displayExpenses();
