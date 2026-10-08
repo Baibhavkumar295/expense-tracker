@@ -40,4 +40,4 @@ The project is hosted using GitHub Pages.
 
 ## Author
 
-Diya Sharma
+BAIBHAV KUMAR
