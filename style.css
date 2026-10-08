@@ -1,46 +1,107 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f6f8;
+    background: #f4f6f8;
     margin: 0;
-    padding: 40px;
+    padding: 30px;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
 }
 
 h1 {
     text-align: center;
-    color: #333;
+    color: #222;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
 }
 
 form {
-    max-width: 400px;
-    margin: 30px auto;
     background: white;
     padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
 label {
+    display: block;
     font-weight: bold;
+    margin-top: 12px;
 }
 
 input,
 select {
     width: 100%;
-    padding: 10px;
-    margin-top: 8px;
+    padding: 12px;
+    margin-top: 7px;
+    margin-bottom: 15px;
     box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 6px;
 }
 
 button {
     width: 100%;
     padding: 12px;
-    background-color: #333;
+    background: #222;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 6px;
     cursor: pointer;
+    font-size: 16px;
 }
 
 button:hover {
-    background-color: #555;
+    background: #444;
+}
+
+.summary {
+    background: white;
+    margin-top: 25px;
+    padding: 20px;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.summary h2 {
+    margin-bottom: 5px;
+}
+
+.summary p {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+table {
+    width: 100%;
+    margin-top: 15px;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+th,
+td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background: #222;
+    color: white;
+}
+.delete-btn {
+    background: #d9534f;
+    padding: 7px 10px;
+    margin: 0;
+    width: auto
 }
